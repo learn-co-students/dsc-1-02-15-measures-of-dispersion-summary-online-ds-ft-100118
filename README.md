@@ -78,7 +78,8 @@ The **quartiles** of a data set divides the data into four equal parts, with one
 
 The **interquartile range (IQR)** is a measure of where the “middle fifty” is in a data set. Where a range is a measure of where the beginning and end are in a set, an interquartile range is a measure of where the bulk of the values lie. That’s why it’s preferred over many other measures of spread (i.e. the average or median) when reporting things like average retirement age and scores in a test etc. 
 
-![](IQR.png)
+![](iqr.png)
+
 
 ### Visualizing Dispersion with Box Plots
 
