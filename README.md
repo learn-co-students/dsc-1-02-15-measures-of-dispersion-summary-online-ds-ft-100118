@@ -91,6 +91,7 @@ Box plot is a visual representation of centrality and spread of data in followin
 * Third Quartile: If data set is arranged in ascending order, the 75% of data is below it
 
 They enable us to study the distributional characteristics of a group of scores as well as the level of the scores. A general depiction of a box plot is shown below:
+
 ![](http://www.physics.csbsju.edu/stats/simple.box.defs.gif)
 
 When creating box plots, scores are first sorted. Then four equal sized groups are made from the ordered scores. That is, 25% of all scores are placed in each group. The lines dividing the groups are called quartiles, and the groups are referred to as quartile groups. Usually we label these groups 1 to 4 starting at the bottom. Matplotlib has a built in function to create such box plots. Let's create a box plot for the retirement dataset we talked about earlier (including the outlier):
