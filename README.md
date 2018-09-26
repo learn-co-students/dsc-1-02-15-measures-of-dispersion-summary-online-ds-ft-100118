@@ -5,7 +5,7 @@
 
 * Describe the significance of calculating measures of dispersion for continuous data
 * Understand the formula and intuition behind mean absolute deviation, standard deviation and variance
-* Understand the formula and intuition behind quantiles/quartiles and deciles
+* Understand the formula and intuition behind quantiles/quartiles and percentiles
 * Understand and interpret Interquartile distances with box plots
 
 
@@ -72,14 +72,61 @@ Percentiles are descriptions of quantiles relative to 100. So the 80th percentil
 
 So above would mean that you are on 80th percentile and 80% of people in the data are shorter than you.  
 
+### InterQuantile Range - IQR
 The **quartiles** of a data set divides the data into four equal parts, with one-fourth of the data values in each part. The second quartile position is the median of the data set, which divides the data set in half as shown for a simple dataset below:
 
 ![](https://mathbitsnotebook.com/Algebra1/StatisticsData/quartileboxview2.png)
 
 The **interquartile range (IQR)** is a measure of where the “middle fifty” is in a data set. Where a range is a measure of where the beginning and end are in a set, an interquartile range is a measure of where the bulk of the values lie. That’s why it’s preferred over many other measures of spread (i.e. the average or median) when reporting things like average retirement age and scores in a test etc. 
 
-![](iqr.png)
+#### Calculating IQR for a given data set. 
 
+Let's look at the steps for calculating IQR for ODD number of elements. 
+```
+Data = 1, 5, 2, 7, 6, 12, 15, 18, 9, 27, 19
+Step 1: Put the given numbers in order.
+1, 2, 5, 6, 7, 9, 12, 15, 18, 19, 27.
+
+Step 2: Find the median.
+1, 2, 5, 6, 7, 9, 12, 15, 18, 19, 27.
+
+Step 3: Place parentheses around the numbers above and below the median. 
+Not necessary statistically, but it makes Q1 and Q3 easier to spot.
+(1, 2, 5, 6, 7), 9, (12, 15, 18, 19, 27).
+
+Step 4: Find Q1 and Q3
+Think of Q1 as a median in the lower half of the data and think of Q3 as a median for the upper half of data.
+(1, 2, 5, 6, 7),  9, ( 12, 15, 18, 19, 27). Q1 = 5 and Q3 = 18.
+
+Step 5: Subtract Q1 from Q3 to find the interquartile range.
+18 – 5 = 13.
+```
+---
+
+For caluclating IQR for even number of elements present in data , the process is slightly modified as below:
+```
+Let's find the IQR for the following data set: 3, 5, 7, 8, 9, 11, 15, 16, 20, 21.
+
+Step 1: Put the numbers in order.
+3, 5, 7, 8, 9, 11, 15, 16, 20, 21.
+
+Step 2: Make a mark in the center of the data:
+3, 5, 7, 8, 9, | 11, 15, 16, 20, 21.
+
+Step 3: Place parentheses around the numbers above and below the mark you made in Step 2–it makes Q1 and Q3 easier to spot. 
+(3, 5, 7, 8, 9), | (11, 15, 16, 20, 21).
+
+Step 4: Find Q1 and Q3
+Q1 is the median (the middle) of the lower half of the data, and Q3 is the median (the middle) of the upper half of the data.
+(3, 5, 7, 8, 9), | (11, 15, 16, 20, 21). Q1 = 7 and Q3 = 16.
+
+Step 5: Subtract Q1 from Q3 for IQR
+16 – 7 = 9.
+```
+
+The above behavior of IQR is graphically depicted below: 
+
+![](IQR.png)
 
 ### Visualizing Dispersion with Box Plots
 
@@ -92,7 +139,6 @@ Box plot is a visual representation of centrality and spread of data in followin
 * Third Quartile: If data set is arranged in ascending order, the 75% of data is below it
 
 They enable us to study the distributional characteristics of a group of scores as well as the level of the scores. A general depiction of a box plot is shown below:
-
 ![](http://www.physics.csbsju.edu/stats/simple.box.defs.gif)
 
 When creating box plots, scores are first sorted. Then four equal sized groups are made from the ordered scores. That is, 25% of all scores are placed in each group. The lines dividing the groups are called quartiles, and the groups are referred to as quartile groups. Usually we label these groups 1 to 4 starting at the bottom. Matplotlib has a built in function to create such box plots. Let's create a box plot for the retirement dataset we talked about earlier (including the outlier):
@@ -104,6 +150,7 @@ import matplotlib.pyplot as plt
 plt.style.use('ggplot') # for viewing a grid on plot
 x = [54, 54, 54, 55, 56, 57, 57, 58, 58, 60, 81]
 plt.boxplot(x,  showfliers=False)
+plt.title ("Retirement Age BoxPlot")
 plt.show()
 ```
 
@@ -120,6 +167,7 @@ See that argument `showfliers=False`, it is used to eliminate the outliers from 
 
 ```python
 plt.boxplot(x)
+plt.title ("Retirement Age BoxPlot - with outliers")
 plt.show()
 ```
 
