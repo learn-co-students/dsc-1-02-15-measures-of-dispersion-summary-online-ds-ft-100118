@@ -1,8 +1,8 @@
 
 # Measures of Dispersion
 
-## SWBATs
-
+## Objectives
+You will be able to:
 * Describe the significance of calculating measures of dispersion for continuous data
 * Understand the formula and intuition behind mean absolute deviation, standard deviation and variance
 * Understand the formula and intuition behind quantiles/quartiles and percentiles
@@ -11,7 +11,7 @@
 
 ### Introduction
 
-In previous lesson, we learned about Measures of central tendency such as mean, median and mode. These metrics help give us a general understanding of where the values lie in the range of our data. However, they don't tell us the whole picture, and can often be misleading. 
+In previous lesson, we learned about Measures of central tendency - mean, median and mode. These metrics help give us a general understanding of where the values lie in the range of our data. However, they don't tell us the whole picture, and can often be misleading. 
 
 To truly understand our data, we also need **Measures of Dispersion**, namely, Absolute Deviation, Standard Deviation and Variance. These measures tell us how tightly or loosely clustered around the center our data is, and generally act as a measure of how "noisy" our dataset is or isn't.
 
@@ -34,6 +34,8 @@ For example, Consider the mean score for the group of 100 students is 58.75 out 
 
 Here **xi = [x1, x2, .., xn]** , where n is the number of observations. x-bar is the mean calculated over the dataset.
 
+So, for example, if two people make \$50k a year and two make \$60k a year, the mean is \$55k and the average absolute deviation is \$5k.  
+
 ## Variance
 
 A more complex measure of dispersion is Variance. Unlike the absolute deviation, which uses the absolute value of the deviation in order to take care of the negative values, the variance achieves positive values by squaring each of the deviations instead. Adding up these squared deviations gives us the **sum of squares**, which we can then divide by the total number of values in our data.  Variance can be calculated with the formula:
@@ -45,9 +47,30 @@ Here the variance (σ2: sigma-squared), is achieved by:
 * squaring the result (to remove the negative sign) and adding to a total
 * dividing by total number of observations
 
+If we were to do that for our four people above, the variance would be:
+
+
+```python
+# I'm going to import a library so I don't have to write too much code
+import numpy as np
+
+# I'll throw the salaries into a list
+salaries = [50, 50, 60, 60]
+
+# And ask numpy to tell me the variance using the var() method
+np.var(salaries)
+```
+
+
+
+
+    25.0
+
+
+
 As a measure of dispersion, the variance is very useful. If the values in the data are spread out, the variance will be a large number. On the other hand, if the values are spread closely around the mean, the variance will be a much smaller number. 
 
-There are, however, two potential problems with the variance. First, because the deviations of values from the mean are 'squared', this gives more weight to extreme scores. Outliers in the data can also impact variance. Secons, the variance is not in the same units as the values in our data set. Variance is measured in the units **squared**. This means we cannot directly relate variance value to the values in our data set. 
+There are, however, two potential problems with the variance. Firstly, because the deviations of values from the mean are 'squared', this gives more weight to extreme scores. Outliers in the data can also impact variance. Secondly, the variance is not in the same units as the values in our data set. Variance is measured in the units **squared**. This means we cannot directly relate variance value to the values in our data set. 
 
 Calculating the standard deviation rather than the variance rectifies this problem. 
 
@@ -56,7 +79,7 @@ Calculating the standard deviation rather than the variance rectifies this probl
 The standard deviation is another measure of the spread of values within a set of data. 
 It is simply the square root of the variance. In the above formula, σ is the standard deviation and σ2 is the variance. 
 
-![](https://cdn.kastatic.org/googleusercontent/N8xzWFc6eo0XBHEXZjz1SwvLSnPezvhTRF1P17kdjUG_tnJivGKkyCxbwVe4MZ0-USOxIZBohgcjdi8e7Z4Hswcqfw)
+![](std.jpg)
 
 
 One of the common applications of calculating standard deviation is statistical inference.  we are often presented with data from a sample only, we can estimate the population standard deviation from a sample standard deviation. These two standard deviations - sample and population standard deviations - are calculated slightly differently as we shall see ahead. 
@@ -155,7 +178,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_13_0.png)
+![png](index_files/index_14_0.png)
 
 
 In this simple box plot we can see that it is very simple to visually inspect the central tendency of the data with a median (drawn as blue line) at 57. The IQR to identify the 50% of the data (shown as a box). The **whiskers** (two horizontal lines) showing the minimum (54) and maximum (60) values in our dataset. 
@@ -172,7 +195,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_15_0.png)
+![png](index_files/index_16_0.png)
 
 
 There it is , the white dot at the top. So you see how we can use boxplot along with other techniques for identifying the central and dispersion tendencies in a given dataset. We shall revisit this again in the course and will see how these techniques are used towards effective data analysis. 
