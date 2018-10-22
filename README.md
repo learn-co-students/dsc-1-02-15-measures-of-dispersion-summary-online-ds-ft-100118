@@ -79,8 +79,9 @@ Calculating the standard deviation rather than the variance rectifies this probl
 The standard deviation is another measure of the spread of values within a set of data. 
 It is simply the square root of the variance. In the above formula, σ is the standard deviation and σ2 is the variance. 
 
-![](std.jpg)
+![standard-deviation-formula](standard-deviation-formula.gif)
 
+**Note:** *μ (mu) is the true mean and x̅ is the arithmetic mean. For this purpose we can think of them as essentially the same. However, in mathematics terms, x̅ is our sample mean and μ is the true population mean.*
 
 One of the common applications of calculating standard deviation is statistical inference.  we are often presented with data from a sample only, we can estimate the population standard deviation from a sample standard deviation. These two standard deviations - sample and population standard deviations - are calculated slightly differently as we shall see ahead. 
 
